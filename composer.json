@@ -1,0 +1,11 @@
+{
+    "name": "vasilkov/brain-games",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Vasilkov Dmitriy",
+            "email": "d.vasilckoff@yandex.ru"
+        }
+    ],
+    "require": {}
+}
