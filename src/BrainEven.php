@@ -3,10 +3,9 @@
 /**
  * CLI game - "Parity check"
  *
- * @author  Dmitriy Vasilkov <d.vasilckoff@yandex.ru>
- * @license  http://www.opensource.org/licenses/mit-license.php The MIT License
+ * @author Dmitriy Vasilkov <d.vasilckoff@yandex.ru>
+ * @license http://www.opensource.org/licenses/mit-license.php The MIT License
  */
-
 
 namespace Brain\Games\BrainEven;
 
@@ -15,7 +14,7 @@ use function cli\prompt;
 
 /**
  * Checks the received number for evenness
- * 
+ *
  * @param int $number - checked number
  * @return bool result of checking
  */
@@ -27,25 +26,25 @@ function checkEven(int $number): bool
 
 /**
  * Winning message
- * 
+ *
  * @param string $name - player name
  * @return void
  */
 
-function win (string $name)
+function win(string $name)
 {
     line("Congratulations, %s", $name);
 }
 
 /**
  * Loss message
- * 
+ *
  * @param string $name - player name
  * @param string $answer - player answer
  * @return void
  */
 
-function loss (string $name, string $answer)
+function loss(string $name, string $answer)
 {
     $right_answer = $answer === "yes" ? "no" : "yes";
     line("'$answer' is wrong answer ;(. Correct answer was '$right_answer'.");
@@ -54,7 +53,7 @@ function loss (string $name, string $answer)
 
 /**
  * The main logic of the game "parity check"
- * 
+ *
  * @return void
  */
 
