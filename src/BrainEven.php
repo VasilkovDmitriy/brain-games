@@ -12,6 +12,25 @@ namespace Brain\Games\BrainEven;
 use function cli\line;
 use function cli\prompt;
 
+const START_INTERVAL = 1;
+const END_INTERVAL = 99;
+
+/**
+ * Message to welcome
+ * 
+ * @return string player name
+ */
+
+function welcome(): string
+{
+    line("Welcome to Brain Games!");
+    line("Answer \"yes\" if the number is even, otherwise answer \"no\".\n");
+
+    $name = prompt("May I have your name?");
+    line("Hello, %s\n", $name);
+    return $name;
+}
+
 /**
  * Checks the received number for evenness
  *
@@ -70,16 +89,11 @@ function clearInput(string $str)
 
 function brainEven()
 {
-    line("Welcome to Brain Games!");
-    line("Answer \"yes\" if the number is even, otherwise answer \"no\".\n");
-
-    $name = prompt("May I have your name?");
-    line("Hello, %s\n", $name);
-
+    $name = welcome();
     $count_correct_answer = 0;
 
     while (true) {
-        $number = rand(1, 99);
+        $number = rand(START_INTERVAL, END_INTERVAL);
         line("Question: %d", $number);
 
         $answer = clearInput(prompt("Your answer"));
