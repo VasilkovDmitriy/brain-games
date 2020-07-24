@@ -41,14 +41,25 @@ function win(string $name)
  *
  * @param string $name - player name
  * @param string $answer - player answer
+ * @param string $correct_answer
  * @return void
  */
 
-function loss(string $name, string $answer)
+function loss(string $name, string $answer, string $correct_answer)
 {
-    $right_answer = $answer === "yes" ? "no" : "yes";
-    line("'$answer' is wrong answer ;(. Correct answer was '$right_answer'.");
+    line("'$answer' is wrong answer ;(. Correct answer was '$correct_answer'.");
     line("Let's try again, %s", $name);
+}
+
+/**
+ * Input filter
+ *
+ * @param string input string
+ */
+
+function clearInput(string $str)
+{
+    return trim(strtolower($str));
 }
 
 /**
@@ -71,17 +82,20 @@ function brainEven()
         $number = rand(1, 99);
         line("Question: %d", $number);
 
-        $answer = prompt("Your answer");
-        if (!($answer === "yes" || $answer === "no")) {
-            loss($name, $answer);
+        $answer = clearInput(prompt("Your answer"));
+
+        $is_even = checkEven($number);
+        $correct_answer = $is_even ? "yes" : "no";
+        
+        if (!preg_match("/^yes$|^no$/", $answer)) {
+            loss($name, $answer, $correct_answer);
             break;
         }
 
-        $is_even = checkEven($number);
-        if (($is_even && $answer === "yes") || (!$is_even && $answer === "no")) {
+        if ($answer === $correct_answer) {
             $count_correct_answer++;
         } else {
-            loss($name, $answer);
+            loss($name, $answer, $correct_answer);
             break;
         }
 
