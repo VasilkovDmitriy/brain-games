@@ -17,7 +17,7 @@ const END_INTERVAL = 99;
 
 /**
  * Message to welcome
- * 
+ *
  * @return string player name
  */
 
@@ -91,8 +91,9 @@ function brainEven()
 {
     $name = welcome();
     $count_correct_answer = 0;
+    $finish = false;
 
-    while (true) {
+    while (!$finish) {
         $number = rand(START_INTERVAL, END_INTERVAL);
         line("Question: %d", $number);
 
@@ -102,20 +103,18 @@ function brainEven()
         $correct_answer = $is_even ? "yes" : "no";
         
         if (!preg_match("/^yes$|^no$/", $answer)) {
-            loss($name, $answer, $correct_answer);
-            break;
+            $finish = true;
         }
 
         if ($answer === $correct_answer) {
             $count_correct_answer++;
         } else {
-            loss($name, $answer, $correct_answer);
-            break;
+            $finish = true;
         }
 
         if ($count_correct_answer === 3) {
-            win($name);
-            break;
+            $finish = true;
         }
     }
+    $count_correct_answer === 3 ? win($name) : loss($name, $answer, $correct_answer);
 }
