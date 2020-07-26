@@ -1,120 +1,37 @@
 <?php
 
-/**
- * CLI game - "Parity check"
- *
- * @author Dmitriy Vasilkov <d.vasilckoff@yandex.ru>
- * @license http://www.opensource.org/licenses/mit-license.php The MIT License
- */
-
 namespace Brain\Games\BrainEven;
-
-use function cli\line;
-use function cli\prompt;
 
 const START_INTERVAL = 1;
 const END_INTERVAL = 99;
 
-/**
- * Message to welcome
- *
- * @return string player name
- */
-
-function welcome(): string
-{
-    line("Welcome to Brain Games!");
-    line("Answer \"yes\" if the number is even, otherwise answer \"no\".\n");
-
-    $name = prompt("May I have your name?");
-    line("Hello, %s\n", $name);
-    return $name;
-}
-
-/**
- * Checks the received number for evenness
- *
- * @param int $number - checked number
- * @return bool result of checking
- */
+use function Brain\Games\Lib\question;
+use function Brain\Games\Lib\runGames;
+use function cli\line;
 
 function checkEven(int $number): bool
 {
     return $number % 2 === 0;
 }
 
-/**
- * Winning message
- *
- * @param string $name - player name
- * @return void
- */
-
-function win(string $name)
-{
-    line("Congratulations, %s", $name);
-}
-
-/**
- * Loss message
- *
- * @param string $name - player name
- * @param string $answer - player answer
- * @param string $correct_answer
- * @return void
- */
-
-function loss(string $name, string $answer, string $correct_answer)
-{
-    line("'$answer' is wrong answer ;(. Correct answer was '$correct_answer'.");
-    line("Let's try again, %s", $name);
-}
-
-/**
- * Input filter
- *
- * @param string input string
- */
-
-function clearInput(string $str)
-{
-    return trim(strtolower($str));
-}
-
-/**
- * The main logic of the game "parity check"
- *
- * @return void
- */
-
 function brainEven()
 {
-    $name = welcome();
-    $count_correct_answer = 0;
-    $finish = false;
-
-    while (!$finish) {
+    $evenQuestion = function () {
         $number = rand(START_INTERVAL, END_INTERVAL);
-        line("Question: %d", $number);
-
-        $answer = clearInput(prompt("Your answer"));
+        $answer = question($number);
 
         $is_even = checkEven($number);
         $correct_answer = $is_even ? "yes" : "no";
-        
-        if (!preg_match("/^yes$|^no$/", $answer)) {
-            $finish = true;
-        }
 
         if ($answer === $correct_answer) {
-            $count_correct_answer++;
+            $right = true;
+            line("Correct!\n");
         } else {
-            $finish = true;
+            $right = false;
         }
+        return [ 'right' => $right, 'answer' => $answer, 'correct_answer' => $correct_answer];
+    };
 
-        if ($count_correct_answer === 3) {
-            $finish = true;
-        }
-    }
-    $count_correct_answer === 3 ? win($name) : loss($name, $answer, $correct_answer);
+    $task = "Answer \"yes\" if the number is even, otherwise answer \"no\".\n";
+    runGames($task, $evenQuestion);
 }
