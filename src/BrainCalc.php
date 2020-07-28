@@ -9,7 +9,6 @@ const MAX_NUMBER_2 = 10;
 
 use function Brain\Games\Lib\question;
 use function Brain\Games\Lib\runGames;
-use function cli\line;
 
 function calculate($num1, $num2, $op)
 {
@@ -40,18 +39,12 @@ function brainCalc()
         $op = $operations[rand(0, 2)];
         $expression = "$number1 $op $number2";
 
-        $answer = (int) question($expression);
-        $correct_answer = calculate($number1, $number2, $op);
+        $answer = question($expression);
+        $correct_answer = (string) calculate($number1, $number2, $op);
 
-        if ($answer === $correct_answer) {
-            $right = true;
-            line("Correct!\n");
-        } else {
-            $right = false;
-        }
-        return [ 'right' => $right, 'answer' => $answer, 'correct_answer' => $correct_answer];
+        return [ 'answer' => $answer, 'correct_answer' => $correct_answer];
     };
 
-    $task = "Answer \"yes\" if the number is even, otherwise answer \"no\".\n";
+    $task = "What is the result of the expression?\n";
     runGames($task, $calcQuestion);
 }

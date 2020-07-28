@@ -53,8 +53,9 @@ function runGames($task, $callback)
     for ($i = 0; $i < NUMBER_OF_QUESTIONS; $i++) {
         $result = $callback();
 
-        if ($result['right']) {
+        if ($result['answer'] === $result['correct_answer']) {
             $count_correct_answer++;
+            line("Correct!\n");
         } else {
             break;
         }
