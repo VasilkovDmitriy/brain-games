@@ -2,7 +2,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/bac5118797ca380baec7/maintainability)](https://codeclimate.com/github/VasilkovDmitriy/php-project-lvl1/maintainability)
 
 # PHP project - Brain games
-[![asciicast](https://asciinema.org/a/G69uOMdkURMhztywkjuojt3aP.svg)](https://asciinema.org/a/G69uOMdkURMhztywkjuojt3aP)
+[![asciicast](https://asciinema.org/a/oy0BAiyiB4nb8bwIiImwfdtW4.svg)](https://asciinema.org/a/oy0BAiyiB4nb8bwIiImwfdtW4)
 
 
 
