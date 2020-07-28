@@ -35,6 +35,7 @@
             "src/Cli.php",
             "src/BrainEven.php",
             "src/BrainCalc.php",
+            "src/BrainGcd.php",
             "src/Lib.php"
         ]
     }

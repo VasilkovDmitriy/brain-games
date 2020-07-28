@@ -36,9 +36,9 @@ function clearInput(string $str)
     return trim(strtolower($str));
 }
 
-function question(string $param)
+function question(string $expression)
 {
-    line("Question: %s", $param);
+    line("Question: %s", $expression);
     return clearInput(prompt("Your answer"));
 }
 
