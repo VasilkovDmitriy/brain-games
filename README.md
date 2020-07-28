@@ -3,6 +3,7 @@
 
 # PHP project - Brain games
 [![asciicast](https://asciinema.org/a/oy0BAiyiB4nb8bwIiImwfdtW4.svg)](https://asciinema.org/a/oy0BAiyiB4nb8bwIiImwfdtW4)
+[![asciicast](https://asciinema.org/a/DNwwksz8kIFAz51RWcobOlGOM.svg)](https://asciinema.org/a/DNwwksz8kIFAz51RWcobOlGOM)
 
 
 
