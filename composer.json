@@ -25,7 +25,8 @@
         "bin/brain-even",
         "bin/brain-calc",
         "bin/brain-gcd",
-        "bin/brain-progression"
+        "bin/brain-progression",
+        "bin/brain-prime"
     ],
 
     "scripts": {
@@ -39,6 +40,7 @@
             "src/BrainCalc.php",
             "src/BrainGcd.php",
             "src/BrainProgression.php",
+            "src/BrainPrime.php",
             "src/Lib.php"
         ]
     }
