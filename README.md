@@ -4,7 +4,7 @@
 # PHP project - Brain games
 [![asciicast](https://asciinema.org/a/oy0BAiyiB4nb8bwIiImwfdtW4.svg)](https://asciinema.org/a/oy0BAiyiB4nb8bwIiImwfdtW4)
 [![asciicast](https://asciinema.org/a/DNwwksz8kIFAz51RWcobOlGOM.svg)](https://asciinema.org/a/DNwwksz8kIFAz51RWcobOlGOM)
-[![asciicast](https://asciinema.org/a/9rcNjFVMxOEBSR1rafPPFbFcW.svg)](https://asciinema.org/a/9rcNjFVMxOEBSR1rafPPFbFcW)
+[![asciicast](https://asciinema.org/a/BNNtj0mLd6NoALw4PP9wbCvqQ.svg)](https://asciinema.org/a/BNNtj0mLd6NoALw4PP9wbCvqQ)
 
 
 
