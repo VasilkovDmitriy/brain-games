@@ -11,7 +11,7 @@
 ### Setup
 
 ```sh
-$ composer dlobal require vasilkov/brain-games
+$ composer global require vasilkov/brain-games
 ```
 #### Setup, brain-even 
 [![asciicast](https://asciinema.org/a/oy0BAiyiB4nb8bwIiImwfdtW4.svg)](https://asciinema.org/a/oy0BAiyiB4nb8bwIiImwfdtW4)
