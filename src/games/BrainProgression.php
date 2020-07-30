@@ -1,6 +1,6 @@
 <?php
 
-namespace Brain\Games\BrainProgression;
+namespace Brain\Games\Games\BrainProgression;
 
 const PROGRESSION_LENGTH = 10;
 const MIN_PROGRESSION_START = 1;
@@ -19,8 +19,6 @@ function getProgression(): array
 
     return range($start, $end, $step);
 }
-
-
 
 function brainProgression()
 {

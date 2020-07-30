@@ -1,6 +1,6 @@
 <?php
 
-namespace Brain\Games\BrainCalc;
+namespace Brain\Games\Games\BrainCalc;
 
 const MIN_NUMBER_1 = 1;
 const MAX_NUMBER_1 = 10;
@@ -36,7 +36,8 @@ function brainCalc()
 
     $calcQuestion = function () use ($operations) {
         [$number1, $number2] = [rand(MIN_NUMBER_1, MAX_NUMBER_1), rand(MIN_NUMBER_2, MAX_NUMBER_2)];
-        $op = $operations[rand(0, 2)];
+        $count_operations = count($operations);
+        $op = $operations[rand(0, $count_operations - 1)];
         $expression = "$number1 $op $number2";
 
         $answer = question($expression);

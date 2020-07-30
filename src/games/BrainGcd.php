@@ -1,6 +1,6 @@
 <?php
 
-namespace Brain\Games\BrainGcd;
+namespace Brain\Games\Games\BrainGcd;
 
 const MIN_NUMBER_1 = 1;
 const MAX_NUMBER_1 = 100;

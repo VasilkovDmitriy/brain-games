@@ -1,6 +1,6 @@
 <?php
 
-namespace Brain\Games\BrainEven;
+namespace Brain\Games\Games\BrainEven;
 
 const START_INTERVAL = 1;
 const END_INTERVAL = 99;
