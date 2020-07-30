@@ -12,7 +12,17 @@
 
 ```sh
 $ composer global require vasilkov/brain-games
+
+  enter the name of the game in the command line
 ```
+### Games
+
+  * brain-even 
+  * brain-calc
+  * brain-gcd
+  * brain-progression
+  * brain-prime
+
 ### Setup, brain-even 
 [![asciicast](https://asciinema.org/a/oy0BAiyiB4nb8bwIiImwfdtW4.svg)](https://asciinema.org/a/oy0BAiyiB4nb8bwIiImwfdtW4)
 
