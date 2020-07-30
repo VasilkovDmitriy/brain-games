@@ -17,11 +17,11 @@ function isPrime(int $number)
         return $number === 2;
     }
 
-    $d = 3;
-    while ($d * $d <= $number and $number % $d !== 0) {
-        $d += 2;
+    $divisor = 3;
+    while ($divisor * $divisor <= $number and $number % $divisor !== 0) {
+        $divisor += 2;
     }
-    return $d * $d > $number;
+    return $divisor * $divisor > $number;
 }
 
 function getNumber()
