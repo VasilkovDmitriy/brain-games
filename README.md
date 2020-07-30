@@ -13,17 +13,17 @@
 ```sh
 $ composer global require vasilkov/brain-games
 ```
-#### Setup, brain-even 
+### Setup, brain-even 
 [![asciicast](https://asciinema.org/a/oy0BAiyiB4nb8bwIiImwfdtW4.svg)](https://asciinema.org/a/oy0BAiyiB4nb8bwIiImwfdtW4)
 
-#### brain-calc
+### brain-calc
 [![asciicast](https://asciinema.org/a/DNwwksz8kIFAz51RWcobOlGOM.svg)](https://asciinema.org/a/DNwwksz8kIFAz51RWcobOlGOM)
 
-#### brain-gcd
+### brain-gcd
 [![asciicast](https://asciinema.org/a/BNNtj0mLd6NoALw4PP9wbCvqQ.svg)](https://asciinema.org/a/BNNtj0mLd6NoALw4PP9wbCvqQ)
 
-#### brain-progression
+### brain-progression
 [![asciicast](https://asciinema.org/a/AbOF66jpAyZ4jqRsfXsG0hJ22.svg)](https://asciinema.org/a/AbOF66jpAyZ4jqRsfXsG0hJ22)
 
-#### brain-prime
+### brain-prime
 [![asciicast](https://asciinema.org/a/fyq3VgjTnJJyyQlrlK2tnwAgR.svg)](https://asciinema.org/a/fyq3VgjTnJJyyQlrlK2tnwAgR)
