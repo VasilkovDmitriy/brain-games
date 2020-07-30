@@ -10,7 +10,14 @@ const MAX_NUMBER_2 = 10;
 use function Brain\Games\Lib\question;
 use function Brain\Games\Lib\runGames;
 
-function calculate($num1, $num2, $op)
+/**
+ * Calculates the input expression
+ * @param int $num1 first number
+ * @param int $num2 second number
+ * @param string $op mathematic operation
+ * @return bool|float|int expression result or false in case of failure
+ */
+function calculate(int $num1, int $num2, string $op)
 {
     $output = 0;
 
@@ -30,6 +37,9 @@ function calculate($num1, $num2, $op)
     return $output;
 }
 
+/**
+ *The function implements the logic of one question in the game and starts the game engine
+ */
 function brainCalc()
 {
     $operations = ['+', '-', '*'];

@@ -8,6 +8,11 @@ const MAX_NUMBER = 200;
 use function Brain\Games\Lib\question;
 use function Brain\Games\Lib\runGames;
 
+/**
+ * Checks if a prime number
+ * @param int $number checked number
+ * @return bool true if prime, or false
+ */
 function isPrime(int $number)
 {
     if ($number === 1) {
@@ -24,6 +29,10 @@ function isPrime(int $number)
     return $divisor * $divisor > $number;
 }
 
+/**
+ * Get a random odd number
+ * @return int a random odd number
+ */
 function getNumber()
 {
     $number = rand(MIN_NUMBER, MAX_NUMBER);
@@ -31,6 +40,9 @@ function getNumber()
     return $number % 2 === 0 ? ++$number : $number;
 }
 
+/**
+ *The function implements the logic of one question in the game and starts the game engine
+ */
 function brainPrime()
 {
     $primeQuestion = function () {

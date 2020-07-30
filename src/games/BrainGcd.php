@@ -10,6 +10,12 @@ const MAX_NUMBER_2 = 100;
 use function Brain\Games\Lib\question;
 use function Brain\Games\Lib\runGames;
 
+/**
+ * Find the greatest common divisor
+ * @param int $a first number
+ * @param int $b second number
+ * @return int a greatest common divisor
+ */
 function findGcd(int $a, int $b): int
 {
     while ($a !== 0 and $b !== 0) {
@@ -22,6 +28,9 @@ function findGcd(int $a, int $b): int
     return $a + $b;
 }
 
+/**
+ *The function implements the logic of one question in the game and starts the game engine
+ */
 function brainGcd()
 {
     $gcdQuestion = function () {

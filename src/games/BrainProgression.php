@@ -11,6 +11,10 @@ const MAX_PROGRESSION_STEP = 10;
 use function Brain\Games\Lib\question;
 use function Brain\Games\Lib\runGames;
 
+/**
+ * Get a random progression according to the parameters described in constants
+ * @return array random progression
+ */
 function getProgression(): array
 {
     $start = rand(MIN_PROGRESSION_START, MAX_PROGRESSION_START);
@@ -20,6 +24,9 @@ function getProgression(): array
     return range($start, $end, $step);
 }
 
+/**
+ *The function implements the logic of one question in the game and starts the game engine
+ */
 function brainProgression()
 {
     $progressionQuestion = function () {
