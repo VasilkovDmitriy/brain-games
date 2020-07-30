@@ -4,8 +4,6 @@ namespace Brain\Games\BrainPrime;
 
 const MIN_NUMBER = 1;
 const MAX_NUMBER = 200;
-const FREQUENCY_PRIME_NUMBER = 2;
-
 
 use function Brain\Games\Lib\question;
 use function Brain\Games\Lib\runGames;
@@ -28,14 +26,9 @@ function isPrime(int $number)
 
 function getNumber()
 {
-    $number = 0;
-    for ($i = 0; $i < FREQUENCY_PRIME_NUMBER; $i++) {
-        $number = rand(MIN_NUMBER, MAX_NUMBER);
-        if (isPrime($number)) {
-            break;
-        }
-    }
-    return $number;
+    $number = rand(MIN_NUMBER, MAX_NUMBER);
+
+    return $number % 2 === 0 ? ++$number : $number;
 }
 
 function brainPrime()
