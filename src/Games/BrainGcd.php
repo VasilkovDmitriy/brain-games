@@ -1,14 +1,13 @@
 <?php
 
-namespace Brain\Games\Games\BrainGcd;
+namespace Brain\Games\BrainGcd;
+
+use function Brain\Games\Lib\runGames;
 
 const MIN_NUMBER_1 = 1;
 const MAX_NUMBER_1 = 100;
 const MIN_NUMBER_2 = 1;
 const MAX_NUMBER_2 = 100;
-
-use function Brain\Games\Lib\question;
-use function Brain\Games\Lib\runGames;
 
 /**
  * Find the greatest common divisor
@@ -18,7 +17,7 @@ use function Brain\Games\Lib\runGames;
  */
 function findGcd(int $a, int $b): int
 {
-    while ($a !== 0 and $b !== 0) {
+    while ($a !== 0 && $b !== 0) {
         if ($a > $b) {
             $a %= $b;
         } else {
@@ -31,18 +30,18 @@ function findGcd(int $a, int $b): int
 /**
  *The function implements the logic of one question in the game and starts the game engine
  */
-function brainGcd()
+function runBrainGcd()
 {
-    $gcdQuestion = function () {
+    $generateGcdQuestion = function () {
         $number1 = rand(MIN_NUMBER_1, MAX_NUMBER_1);
         $number2 = rand(MIN_NUMBER_2, MAX_NUMBER_2);
-        $answer = question("$number1 $number2");
 
-        $correct_answer = (string) findGcd($number1, $number2);
+        $questionParameter = "$number1 $number2";
+        $correctAnswer = (string) findGcd($number1, $number2);
 
-        return ['answer' => $answer, 'correct_answer' => $correct_answer];
+        return [ 'questionParameter' => $questionParameter, 'correctAnswer' => $correctAnswer];
     };
 
-    $task = "Find the greatest common divisor of given numbers..\n";
-    runGames($task, $gcdQuestion);
+    $task = "Find the greatest common divisor of given numbers...";
+    runGames($task, $generateGcdQuestion);
 }

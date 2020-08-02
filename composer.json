@@ -36,11 +36,11 @@
     "autoload": {
         "files": [
             "src/Cli.php",
-            "src/games/BrainEven.php",
-            "src/games/BrainCalc.php",
-            "src/games/BrainGcd.php",
-            "src/games/BrainProgression.php",
-            "src/games/BrainPrime.php",
+            "src/Games/BrainEven.php",
+            "src/Games/BrainCalc.php",
+            "src/Games/BrainGcd.php",
+            "src/Games/BrainProgression.php",
+            "src/Games/BrainPrime.php",
             "src/Lib.php"
         ]
     }

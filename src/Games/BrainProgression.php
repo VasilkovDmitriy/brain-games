@@ -1,15 +1,14 @@
 <?php
 
-namespace Brain\Games\Games\BrainProgression;
+namespace Brain\Games\BrainProgression;
+
+use function Brain\Games\Lib\runGames;
 
 const PROGRESSION_LENGTH = 10;
 const MIN_PROGRESSION_START = 1;
 const MAX_PROGRESSION_START = 9;
 const MIN_PROGRESSION_STEP = 2;
 const MAX_PROGRESSION_STEP = 10;
-
-use function Brain\Games\Lib\question;
-use function Brain\Games\Lib\runGames;
 
 /**
  * Get a random progression according to the parameters described in constants
@@ -27,22 +26,21 @@ function getProgression(): array
 /**
  *The function implements the logic of one question in the game and starts the game engine
  */
-function brainProgression()
+function runBrainProgression()
 {
-    $progressionQuestion = function () {
+    $generateProgressionQuestion = function () {
 
         $progression = getProgression();
 
-        $hidden_element_index = rand(0, count($progression) - 1);
-        $correct_answer = (string) $progression[$hidden_element_index];
+        $hiddenElementIndex = array_rand($progression);
+        $correctAnswer = (string) $progression[$hiddenElementIndex];
+        $progression[$hiddenElementIndex] = '..';
 
-        $progression[$hidden_element_index] = '..';
+        $questionParameter = implode(' ', $progression);
 
-        $answer = question(implode(' ', $progression));
-
-        return ['answer' => $answer, 'correct_answer' => $correct_answer];
+        return [ 'questionParameter' => $questionParameter, 'correctAnswer' => $correctAnswer];
     };
 
-    $task = "What number is missing in the progression?\n";
-    runGames($task, $progressionQuestion);
+    $task = "What number is missing in the progression?";
+    runGames($task, $generateProgressionQuestion);
 }

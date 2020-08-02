@@ -14,7 +14,7 @@ const NUMBER_OF_QUESTIONS = 3;
 function nameQuery(): string
 {
     $name = prompt("May I have your name?");
-    line("Hello, %s\n", $name);
+    line("Hello, %s", $name);
     return $name;
 }
 
@@ -41,11 +41,11 @@ function win(string $name)
  * Displays a message on the player's loss
  * @param string $name player name
  * @param string $answer player answer
- * @param string $correct_answer correct answer
+ * @param string $correctAnswer correct answer
  */
-function loss(string $name, string $answer, string $correct_answer)
+function loss(string $name, string $answer, string $correctAnswer)
 {
-    line("'$answer' is wrong answer ;(. Correct answer was '$correct_answer'.");
+    line("'$answer' is wrong answer ;(. Correct answer was '$correctAnswer'.");
     line("Let's try again, %s", $name);
 }
 
@@ -73,30 +73,29 @@ function question(string $expression)
 /**
  * Game engine
  * @param string $task task for the player
- * @param callable $callback callback must implement the logic of one question of the game,
+ * @param callable $generateGameData callback must implement the logic of one question of the game,
  * return an associative array with the keys 'answer' and 'correct_answer',
  * to get the player's answer and the correct answer to one question
  */
-function runGames(string $task, callable $callback)
+function runGames(string $task, callable $generateGameData)
 {
-    taskPrint($task);
-    $name = nameQuery();
+    try {
+        taskPrint($task);
+        $name = nameQuery();
 
-    $count_correct_answer = 0;
-    $result = [];
+        for ($i = 0; $i < NUMBER_OF_QUESTIONS; $i++) {
+            $gameData = $generateGameData();
+            $answer = question($gameData['questionParameter']);
 
-    for ($i = 0; $i < NUMBER_OF_QUESTIONS; $i++) {
-        $result = $callback();
-
-        if ($result['answer'] === $result['correct_answer']) {
-            $count_correct_answer++;
-            line("Correct!\n");
-        } else {
-            break;
+            if ($answer === $gameData['correctAnswer']) {
+                line("Correct!");
+            } else {
+                loss($name, $answer, $gameData['correctAnswer']);
+                return;
+            }
         }
+        win($name);
+    } catch (\Exception $e) {
+        line($e->getMessage());
     }
-
-    $count_correct_answer === NUMBER_OF_QUESTIONS
-        ? win($name)
-        : loss($name, $result['answer'], $result['correct_answer']);
 }

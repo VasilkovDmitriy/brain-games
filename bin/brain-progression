@@ -1,4 +1,4 @@
-#! /usr/bin/env php
+#!/usr/bin/env php
 
 <?php
 
@@ -10,6 +10,6 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
-use function Brain\Games\Games\BrainProgression\brainProgression;
+use function Brain\Games\BrainProgression\runBrainProgression;
 
-brainProgression();
+runBrainProgression();
