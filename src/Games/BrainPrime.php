@@ -1,8 +1,8 @@
 <?php
 
-namespace Brain\Games\BrainPrime;
+namespace Brain\Games\Games\BrainPrime;
 
-use function Brain\Games\Lib\runGames;
+use function Brain\Games\Lib\runGame;
 
 const MIN_NUMBER = 1;
 const MAX_NUMBER = 200;
@@ -14,18 +14,16 @@ const MAX_NUMBER = 200;
  */
 function isPrime(int $number)
 {
-    if ($number === 1) {
+    if ($number <= 1) {
         return false;
     }
-    if ($number % 2 === 0) {
-        return $number === 2;
+    $end = $number / 2;
+    for ($i = 2; $i <= $end; $i++) {
+        if ($number % $i === 0) {
+            return false;
+        }
     }
-
-    $divisor = 3;
-    while ($divisor * $divisor <= $number && $number % $divisor !== 0) {
-        $divisor += 2;
-    }
-    return $divisor * $divisor > $number;
+    return true;
 }
 
 /**
@@ -46,12 +44,12 @@ function runBrainPrime()
 {
     $generatePrimeQuestion = function () {
 
-        $questionParameter = getOddNumber();
-        $correctAnswer = isPrime($questionParameter) ? "yes" : "no";
+        $question = getOddNumber();
+        $correctAnswer = isPrime($question) ? "yes" : "no";
 
-        return [ 'questionParameter' => $questionParameter, 'correctAnswer' => $correctAnswer];
+        return [ 'question' => $question, 'correctAnswer' => $correctAnswer];
     };
 
     $task = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-    runGames($task, $generatePrimeQuestion);
+    runGame($task, $generatePrimeQuestion);
 }

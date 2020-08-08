@@ -1,8 +1,8 @@
 <?php
 
-namespace Brain\Games\BrainCalc;
+namespace Brain\Games\Games\BrainCalc;
 
-use function Brain\Games\Lib\runGames;
+use function Brain\Games\Lib\runGame;
 
 const MIN_NUMBER_1 = 1;
 const MAX_NUMBER_1 = 10;
@@ -11,23 +11,23 @@ const MAX_NUMBER_2 = 10;
 
 /**
  * Calculates the input expression
- * @param int $num1 first number
- * @param int $num2 second number
- * @param string $op mathematic operation
+ * @param int $number1 first number
+ * @param int $number2 second number
+ * @param string $mathematicalOperation mathematical operation
  * @return bool|float|int expression result or false in case of failure
  * @throws \Exception unknown operator
  */
-function calculate(int $num1, int $num2, string $op)
+function calculate(int $number1, int $number2, string $mathematicalOperation)
 {
-    switch ($op) {
+    switch ($mathematicalOperation) {
         case '+':
-            return $num1 + $num2;
+            return $number1 + $number2;
         case '-':
-            return $num1 - $num2;
+            return $number1 - $number2;
         case '*':
-            return$num1 * $num2;
+            return$number1 * $number2;
         default:
-            throw new \Exception("unknown operator $op");
+            throw new \Exception("unknown operator $mathematicalOperation");
     }
 }
 
@@ -43,12 +43,12 @@ function runBrainCalc()
         $number2 = rand(MIN_NUMBER_2, MAX_NUMBER_2);
         $op = $operations[array_rand($operations)];
 
-        $questionParameter = "$number1 $op $number2";
+        $question = "$number1 $op $number2";
         $correctAnswer = (string)calculate($number1, $number2, $op);
 
-        return ['questionParameter' => $questionParameter, 'correctAnswer' => $correctAnswer];
+        return ['question' => $question, 'correctAnswer' => $correctAnswer];
     };
 
     $task = "What is the result of the expression?";
-    runGames($task, $generateCalcQuestion);
+    runGame($task, $generateCalcQuestion);
 }

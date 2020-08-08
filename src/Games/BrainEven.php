@@ -1,8 +1,8 @@
 <?php
 
-namespace Brain\Games\BrainEven;
+namespace Brain\Games\Games\BrainEven;
 
-use function Brain\Games\Lib\runGames;
+use function Brain\Games\Lib\runGame;
 
 const START_INTERVAL = 1;
 const END_INTERVAL = 99;
@@ -24,12 +24,12 @@ function runBrainEven()
 {
     $generateEvenQuestion = function () {
 
-        $questionParameter = rand(START_INTERVAL, END_INTERVAL);
-        $correctAnswer = isEven($questionParameter) ? "yes" : "no";
+        $question = rand(START_INTERVAL, END_INTERVAL);
+        $correctAnswer = isEven($question) ? "yes" : "no";
 
-        return [ 'questionParameter' => $questionParameter, 'correctAnswer' => $correctAnswer];
+        return [ 'question' => $question, 'correctAnswer' => $correctAnswer];
     };
 
     $task = 'Answer "yes" if the number is even, otherwise answer "no".';
-    runGames($task, $generateEvenQuestion);
+    runGame($task, $generateEvenQuestion);
 }
