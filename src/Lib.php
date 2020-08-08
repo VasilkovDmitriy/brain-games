@@ -25,7 +25,6 @@ function runGame(string $task, callable $generateGameData)
         line("Hello, %s", $name);
 
         for ($i = 0; $i < NUMBER_OF_QUESTIONS; $i++) {
-
             ['question' => $question, 'correctAnswer' => $correctAnswer] = $generateGameData();
             line("Question: %s", $question);
             $playerAnswer = trim(strtolower(prompt("Your answer")));
