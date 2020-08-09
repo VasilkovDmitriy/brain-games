@@ -1,8 +1,8 @@
 <?php
 
-namespace Brain\Games\Games\BrainPrime;
+namespace BrainGames\Games\BrainPrime;
 
-use function Brain\Games\Lib\runGame;
+use function BrainGames\Lib\runGame;
 
 const MIN_NUMBER = 1;
 const MAX_NUMBER = 200;

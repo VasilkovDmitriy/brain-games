@@ -1,8 +1,8 @@
 <?php
 
-namespace Brain\Games\Games\BrainEven;
+namespace BrainGames\Games\BrainEven;
 
-use function Brain\Games\Lib\runGame;
+use function BrainGames\Lib\runGame;
 
 const START_INTERVAL = 1;
 const END_INTERVAL = 99;

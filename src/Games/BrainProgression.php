@@ -1,8 +1,8 @@
 <?php
 
-namespace Brain\Games\Games\BrainProgression;
+namespace BrainGames\Games\BrainProgression;
 
-use function Brain\Games\Lib\runGame;
+use function BrainGames\Lib\runGame;
 
 const PROGRESSION_LENGTH = 10;
 const MIN_PROGRESSION_START = 1;
