@@ -36,15 +36,15 @@ function calculate(int $number1, int $number2, string $mathematicalOperation)
  */
 function runBrainCalc()
 {
-    $operations = ['+', '-', '*'];
+    $mathematicalOperations = ['+', '-', '*'];
 
-    $generateCalcQuestion = function () use ($operations) {
+    $generateCalcQuestion = function () use ($mathematicalOperations) {
         $number1 = rand(MIN_NUMBER_1, MAX_NUMBER_1);
         $number2 = rand(MIN_NUMBER_2, MAX_NUMBER_2);
-        $op = $operations[array_rand($operations)];
+        $mathematicalOperation = $mathematicalOperations[array_rand($mathematicalOperations)];
 
-        $question = "$number1 $op $number2";
-        $correctAnswer = (string)calculate($number1, $number2, $op);
+        $question = "$number1 $mathematicalOperation $number2";
+        $correctAnswer = (string)calculate($number1, $number2, $mathematicalOperation);
 
         return ['question' => $question, 'correctAnswer' => $correctAnswer];
     };
